@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blogs</title>
+</head>
+
+<body>
+    <script>
+        
+        let blog = { // setting empty objects to be overriden
+            subject: "",
+            content: "",
+            author: "",
+
+            generateForm(){ // creating the form using javascript
+                
+                let subject = document.createElement("input") // creating an input field for the subject
+                subject.id = "subject" // giving the input field an ID so we can target it 
+                
+                let content = document.createElement("input") // creating an input field for the blog content
+                content.id = "content" // giving the input field an ID
+
+                let button = document.createElement("button") // creating a button  
+                button.innerText = "Save Blog Entry" // giving button text
+                button.addEventListener("click", this.saveBlog) // adding an even listener to button
+                button.addEventListener("click", this.renderBlogs) // adding an even listener to button
+                document.body.appendChild(subject) // appending elements to page
+                document.body.appendChild(content) // appending elements to page
+                document.body.appendChild(button) // appending elements to page
+
+            },
+
+            saveBlog(){ // creating an array object
+
+                let subject = document.getElementById("subject").value // getting the value of the input fields and assigning them to variables
+                let content = document.getElementById("content").value // getting the value of the input fields and assigning them to variables
+                
+
+                if (localStorage.getItem("blogs")) { // searching through local storage, IF "blogs" exists, we use the push method to add to the array
+                    let data = JSON.parse(localStorage.getItem("blogs"))
+                    data.push({  
+                        subject: subject, // pushing the new subject and content to the array
+                        content: content // pushing the new subject and content to the array
+                    })
+
+                    let dataset = JSON.stringify(data) // stringifying the data defined before, and then assigning it to a variable
+                    localStorage.setItem("blogs", dataset) // settings the stringified data to local storage
+
+                } else {
+                    let blogData = [] // if no data exists in local storage, we create an empty array
+
+                    blogData = [{
+                        subject: subject, // setting the subject of the object to be the .value we grabbed from line 21
+                        content: content // ^ but with line 24
+                    }]
+
+                    let dataConversion = JSON.stringify(blogData) // stringifying the blog data and assigning it to a variable
+                    localStorage.setItem("blogs", dataConversion) // saving to local storage
+                }
+            },
+
+            renderBlogs(){ // rendering the blogs to the page, by grabbing them from local storage
+                let myData = localStorage.getItem("blogs") // getting the data from local storage, assigning it to a variable
+                let data = JSON.parse(myData) // parsing the data, so that we can render it to the page
+
+                for (i = 0; i < data.length; i++){ // for loop, if i is less than the length of the array run the code, then increment i
+                    
+                    let blogSubject = document.createElement("h3") // assigning a "command" to a variable
+                    let blogContent = document.createElement("p") // the same as ^
+                    let button = document.createElement("button") // creating an "edit" button for each blog
+                    
+                    blogSubject.innerText = data[i].subject // setting the innerText of the subject to be = the value of the saved blog
+                    blogContent.innerText = data[i].content // ^ same as above but for the content of the blog
+                    button.innerText = "edit" // setting innerText for every "edit" button that is appended to the page
+
+                    document.body.appendChild(blogSubject) // appending elements to page
+                    document.body.appendChild(blogContent) // appending elements to page
+                    document.body.appendChild(button) // appending elements to page
+                }
+            }
+
+        }
+
+        blog.generateForm()
+        blog.renderBlogs()
+
+    </script>
+</body>
+
+</html>

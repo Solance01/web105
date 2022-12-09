@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input id="city" type="text" placeholder="Enter the name of your city">
+    <button onclick="getWeather()">Get the current forecast</button>
+    <div id="weatherInfo"></div>
+    <script>
+
+        function getWeather() {
+            let key = "?key=385d9e5518a2424292f184631221511";
+            let city = document.getElementById("city").value;
+            let url = "https://api.weatherapi.com/v1/current.json" + key + "&q=" + city + "&aqi=no";
+            let response = fetch(url);
+
+            fetch(url)
+                .then(response => response.json()
+
+                ).then((data) => {
+                    // this is where we write the data to the screen
+                    console.log(data);
+                    console.log(data.current.temp_c);
+
+                    let temp = data.current.temp_c;
+                    let cityName = data.location.name;
+                    console.log(cityName)
+
+                    let localTime = data.location.localtime;
+                    console.log(localTime);
+
+                    let message = "The current Temperature in " + cityName + " is " + temp + " degrees celcius.";
+                    let timeMessage = " And the current date/time is " + localTime + ".";
+                    console.log(message);
+
+                    let element = document.createElement("p");
+                    element.innerHTML = message + timeMessage;
+                    document.getElementById("weatherInfo").appendChild(element);
+                })
+
+                .catch( // alert user if they input unknown city
+                    function () {
+                        alert("City not found")
+                    }
+                )
+
+        }
+
+    </script>
+</body>
+
+</html>

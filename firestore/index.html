@@ -1,0 +1,106 @@
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+
+Subject: <input id="subject" type="text"> <br>
+Content: <textarea name="" id="content" cols="30" rows="10"></textarea> <br>
+Username: <input id="userName" type="text"> <br>
+<button onclick="createData()">Create Blog</button>
+
+<script>
+
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyDDdU2DS9zvORdeC-nEz5Y_86NsNXAuXgk",
+        authDomain: "web104-5d51d.firebaseapp.com",
+        projectId: "web104-5d51d",
+        storageBucket: "web104-5d51d.appspot.com",
+        messagingSenderId: "110320648625",
+        appId: "1:110320648625:web:8ebfe1b4257b6b132c7d90",
+        measurementId: "G-YS9HZL1Y3P"
+    };
+
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore(); // assigning the firestore functionality to db variable
+
+    // CRUD OPERATIONS - CREATE
+
+    function createData() {
+
+        let subject = document.getElementById("subject").value
+        let content = document.getElementById("content").value
+        let userName = document.getElementById("userName").value
+
+        db.collection("blogs").doc().set({
+            subject: subject,
+            content: content,
+            userName: userName
+        })
+        .then(() => {
+            console.log("Document successfully written!");
+        })
+            .catch((error) => {
+            console.error("Error writing document: ", error);
+        });
+
+    }
+
+
+    // CRUD OPERATION - READ
+
+    function readData() {
+        let docRef = db.collection("notes").doc("example");
+
+        docRef.get().then((doc) => { // this promise returns the data
+
+            if (doc.exists) {
+                console.log("Document data:", doc.data().notes); // return data
+            } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+            }
+        }).catch((error) => {
+            console.log("Error getting document:", error);
+        });
+
+
+    }
+
+
+    function findData() {
+
+        let docs = db.collection("blogs");
+        let myNotes = docs.get().then(data => {
+            data.forEach(doc => {
+                console.log(doc.data().userName)
+                if (doc.data().userName = "solance"){
+                    document.write(doc.data().content)
+                }
+            })
+        })
+    }
+
+    function createUser(){
+        let email = "solance01@gmail.com"
+        let pass = "password123"
+
+        firebase.auth().createUserWithEmailAndPassword(email, pass)
+        .then((userCredential) => {
+            // signed in
+            let user = userCredential.user;   
+        })
+        .catch((error) => {
+            let errorCode = error.code;
+            let errorMessage = error.message;
+        });
+        
+        
+        
+
+    }
+
+
+
+
+</script>

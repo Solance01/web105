@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="HPStyle.css">
+
+
+
+</head>
+
+<body>
+    <div class="navDiv">
+        <nav>
+            <p style=display:inline-block; id="userNav"></p>
+            <button onclick="signOut()" id="logOut">Log Out</button>
+        </nav>
+    </div>
+    <div class="wrapper">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"
+            integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+            crossorigin="anonymous"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+
+        <script src="homePageScript.js"></script>
+
+
+
+        <div id="messageBoard">
+
+        </div>
+
+        <div class="inputField">
+
+            <!-- input field -->
+            <input type="text" id="blogContent" placeholder="Message">
+            <button type="submit" id="createBlog" onclick="createBlog()">Send Message</button>
+
+        </div>
+        <script>
+            readBlog();
+            getUserName();
+        </script>
+    </div>
+</body>
+
+
+
+</html>

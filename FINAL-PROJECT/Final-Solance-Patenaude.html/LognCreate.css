@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&family=PT+Sans&display=swap');
+
+
+html {
+    font-family: sans-serif;
+}
+body {
+    background-color: #7e7e4a;
+}
+
+.wrapper {
+    margin-left: 33vw;
+    margin-right: 33vw;
+    margin-top: 15rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 8px;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    text-align: center;
+    background-color: rgb(212, 206, 206);
+
+}
+
+input, button {
+    display: block;
+    margin: auto;
+}
+
+a {
+    width: 125px;
+    display: block;
+    text-decoration: none;
+    margin: auto;
+}
+
+input {
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid black;
+    margin-top: 1.3rem;
+    width: 250px;
+}
+
+button {
+    margin-top: 1.3rem;
+    margin-bottom: 1.3rem;
+    padding: 10px;
+    border: 0px;
+    border-radius: 12px;
+    width: 275px;
+    transition: .5s;
+}
+
+button:hover {
+    background-color: rgb(94, 137, 218);
+    color: white;   
+}
+
+/* #logOut {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-bottom: 15px;
+    border: 0px solid black;
+    border-radius: 7px;
+    transition: .5s;
+    margin-left: 1.3rem;
+}
+
+#logOut:hover {
+    background-color: rgb(94, 137, 218);
+    color: white;
+} */

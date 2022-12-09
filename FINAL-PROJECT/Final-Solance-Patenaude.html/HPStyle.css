@@ -1,0 +1,153 @@
+/* HTML FONTS  */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&family=PT+Sans&display=swap');
+
+
+
+h4, h5 {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: smaller;
+}
+
+p {
+    font-family: 'PT Sans', sans-serif;
+}
+
+button {
+    font-family: 'PT Sans', sans-serif;
+}
+
+/* END OF HTML FONTS */
+
+/* NAV */
+
+nav {
+    text-align: right;
+    border-bottom: 1px solid #000;
+    background-color: rgb(212, 206, 206);
+    border-radius: 8px;
+}
+
+nav button {
+    margin-right: 2rem;
+}
+
+nav p {
+    margin-right: 5px;
+}
+
+#logOut {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-bottom: 15px;
+    border: 0px solid black;
+    border-radius: 7px;
+    transition: .5s;
+    margin-left: 1.3rem;
+}
+
+#logOut:hover {
+    background-color: rgb(94, 137, 218);
+    color: white;
+}
+
+#userNav {
+    font-size: 1.5rem;
+    margin-bottom: 0rem;
+}
+
+/* END OF NAV */
+
+/* WRAPPER */
+
+.wrapper {
+    margin-left: 5rem;
+    margin-top: 2rem;
+}
+
+/* END OF WRAPPER */
+
+/* Text area/message feild */
+
+#messageBoard {
+    margin-left: 30vw;
+    margin-right: 30vw;
+    background-color: rgb(212, 206, 206);
+    border-radius: 8px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    text-align: right;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+#messageBoard div {
+    max-width: 30vw;
+    border-radius: 8px;
+    padding-left: auto;
+    padding-right: 1rem;
+
+    margin-bottom: .7rem;
+    padding-left: 1rem;
+    background-color: rgb(255, 255, 255);
+
+    display: inline-block;
+    width:auto;
+    max-width:400px; /* or 100% in your case */
+    word-wrap: break-word;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#messageBoard h4 {
+    font-style: italic;
+    margin-bottom: 3px;
+}
+
+#messageBoard h5 {
+    margin-top: 3px;
+}
+
+/* END OF MESSAGE FEILD */
+
+/* INPUT FIELD */
+
+.inputField {
+    margin-left: 30vw;
+    margin-top: 10px;
+}
+
+.inputField #blogContent {
+    padding-right: 25.9rem;
+    padding-left: 5px;
+    padding-top: 7px;
+    padding-bottom: 6px;
+    border: 0px solid black;
+    border-radius: 7px;
+
+}
+
+.inputField #createBlog {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 0px solid black;
+    border-radius: 7px;
+    transition: .5s;
+}
+
+#createBlog:hover {
+    background-color: rgb(94, 137, 218);
+    color: white;
+}
+
+
+
+h5 {
+    float: left;
+    padding-top: 15px;
+}
+
+body {
+    background-color: #7e7e4a;
+    margin: 0;
+}
